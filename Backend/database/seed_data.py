@@ -1,4 +1,4 @@
 from .mongo_connector import db
 
-def seed():
-    db.farmers.insert_one({"name": "Test Farmer"})
+def seed_news_sample():
+    db.news.insert_one({"title": "Test News", "source": "seed", "body": "sample"})
