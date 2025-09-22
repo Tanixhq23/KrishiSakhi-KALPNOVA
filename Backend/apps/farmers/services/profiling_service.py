@@ -1,4 +1,4 @@
-from .models import Farmer
+from ..models import Farmer
 
 def get_farmer_profile(farmer_id):
     try:

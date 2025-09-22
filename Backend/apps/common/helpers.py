@@ -1,2 +1,2 @@
-def format_response(data, status="success"):
-    return {"status": status, "data": data}
+def format_response(data=None, message="success"):
+    return {"message": message, "data": data}
