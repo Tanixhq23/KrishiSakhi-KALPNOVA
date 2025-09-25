@@ -1,5 +1,9 @@
-Django>=4.2
-djangorestframework
-fastapi
-uvicorn
-pymongo
+asgiref==3.9.2
+Django==4.1.13
+djangorestframework==3.14.0
+djongo==1.3.6
+dnspython==2.8.0
+pymongo==4.15.1
+pytz==2025.2
+sqlparse==0.2.4
+tzdata==2025.2
