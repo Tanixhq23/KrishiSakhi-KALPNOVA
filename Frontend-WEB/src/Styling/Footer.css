@@ -1,0 +1,162 @@
+.footer {
+  background-color: #f3f4f6;
+  padding: 48px 16px 24px;
+  font-family: 'Arial', sans-serif;
+  color: #374151;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-left {
+  flex: 1 1 250px;
+}
+
+.footer-left img {
+height: 40px;
+}
+
+.footer-tagline {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.footer-socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e5e7eb;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  color: #374151;
+  transition: 0.3s;
+}
+
+.footer-socials a:hover {
+  background: #16a34a;
+  color: #fff;
+}
+
+
+.footer-links {
+  display: flex;
+  flex: 2 1 400px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.footer-links h3 {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 6px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #6b7280;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #16a34a;
+}
+
+.footer-contact {
+  flex: 1 1 250px;
+}
+
+.footer-contact h3 {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.footer-contact p {
+  margin-bottom: 12px;
+  color: #6b7280;
+}
+
+.footer-subscribe {
+  display: flex;
+  margin-bottom: 16px;
+  gap: 8px;
+}
+
+.footer-subscribe input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+.footer-subscribe button {
+  padding: 10px 16px;
+  background-color: black;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.footer-subscribe button:hover {
+  background-color: #202020;
+}
+
+.footer-address {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.footer-copy {
+  text-align: center;
+  margin-top: 32px;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .footer-subscribe {
+    flex-direction: column;
+  }
+
+  .footer-subscribe button {
+    width: 100%;
+  }
+}

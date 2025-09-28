@@ -1,0 +1,224 @@
+.farming-assistant {
+  position: relative;
+  height: 60vh;
+  background-image: url('/11.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  margin: 48px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.farming-overlay {
+  position: relative;
+  z-index: 2;
+  height: inherit;
+  width: 100%;
+  padding: 32px;
+  background: linear-gradient(-180deg, rgba(0, 168, 14, 0.8), rgba(1, 65, 25, 0.3));
+  border-radius: 16px;
+  backdrop-filter: blur(1px);
+  display: flex;
+  flex-direction: column;
+  justify-content:center ;
+  align-items: center;
+}
+
+.farming-title {
+  font-size: 52px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: greenyellow;
+}
+
+.farming-location {
+  font-size: 18px;
+  margin-bottom: 24px;
+  color: #e3da3c;
+}
+
+.farming-button {
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background-color: black;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.farming-button:hover {
+  background-color: #202020;
+  transform: translateX(3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .farming-assistant {
+    height: 50vh;
+    margin: 32px 12px;
+  }
+
+  .farming-overlay {
+    padding: 24px;
+  }
+
+  .farming-title {
+    font-size: 28px;
+  }
+
+  .farming-location {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+
+  .farming-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .farming-assistant {
+    height: 45vh;
+    margin: 24px 8px;
+  }
+
+  .farming-title {
+    font-size: 24px;
+  }
+
+  .farming-location {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .farming-button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+.activity-tracker {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 20px;
+  overflow-y: auto;
+  max-height: 40vh;
+}
+
+.activity-tracker h3 {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.activity-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  backdrop-filter: blur(5px);
+}
+
+.activity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.activity-header span {
+  color: white;
+  font-weight: bold;
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status.todo {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.status.completed {
+  background-color: #28a745;
+  color: white;
+}
+
+.activity-card p {
+  color: #eee;
+  margin-bottom: 10px;
+}
+
+.task-completion-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task-completion-form textarea {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+  resize: vertical;
+}
+
+.task-completion-form input[type="file"] {
+  color: white;
+}
+
+.task-completion-form button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.task-completion-form button:hover {
+  background-color: #0056b3;
+}
+
+.task-completed {
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* Custom scrollbar for activity tracker */
+.activity-tracker::-webkit-scrollbar {
+  width: 8px;
+}
+
+.activity-tracker::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.activity-tracker::-webkit-scrollbar-thumb {
+  background: rgba(0, 168, 14, 0.8);
+  border-radius: 10px;
+}
+
+.activity-tracker::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 128, 10, 0.8);
+}

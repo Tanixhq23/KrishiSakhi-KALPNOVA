@@ -1,0 +1,23 @@
+/* Hide the default Google Translate text & dropdown */
+  .goog-te-gadget {
+    font-size: 0;
+  }
+  .goog-te-gadget span {
+    display: none;
+  }
+  .goog-te-gadget .goog-te-combo {
+    display: none;
+  }
+
+  /* Keep only the icon */
+  .goog-te-gadget-simple {
+    background: none !important;
+    border: none !important;
+  }
+
+  /* Optional: Style your own icon */
+  .translate-icon {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+  }
