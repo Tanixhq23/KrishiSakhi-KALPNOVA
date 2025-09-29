@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import "./Cursor.css";
 
+let keyCounter = 0;
+const generateUniqueKey = () => {
+  return `${Date.now()}-${keyCounter++}`;
+};
+
 const Cursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [trails, setTrails] = useState([]);
@@ -14,7 +19,7 @@ const Cursor = () => {
       setPosition({ x, y });
 
       // create a smoke trail
-      const id = Date.now();
+      const id = generateUniqueKey();
       setTrails((prev) => [...prev, { id, x, y }]);
 
       // remove after animation duration

@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import './App.css'
 import Cursor from './Cursor'
 import About from './Components/About'
@@ -10,8 +10,14 @@ import SignUp from "./Components/SignUp";
 import Services from "./Components/Services";
 import Home from "./Components/Home";
 import Dashboard from "./Components/Dashboard";
+import Profile from "./Components/Profile";
+import CommunityForum from "./Components/CommunityForum";
+import WeatherPage from "./Components/WeatherPage";
+
 
 function App() {
+  const location = useLocation();
+  const showChatbot = !['/signin', '/signup'].includes(location.pathname);
 
   return (
     <>
@@ -25,6 +31,10 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/forum" element={<CommunityForum />} />
+        <Route path="/weather" element={<WeatherPage />} />
+
       </Routes>
       <Footer/>
     </>

@@ -1,4 +1,7 @@
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -7,7 +10,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'a-dummy-secret-key-for-development'
+SECRET_KEY = os.getenv('SECRET_KEY', 'a-dummy-secret-key-for-development')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -123,10 +126,10 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'tanishqlokhande2005@gmail.com'
-EMAIL_HOST_PASSWORD = 'hcge yeoz epws fjbo'
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
 # News API settings
-NEWS_API_KEY = '887e3d7c789e482580960c58bff231f3'
+NEWS_API_KEY = os.getenv('NEWS_API_KEY')
 
 # APScheduler settings
 APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"

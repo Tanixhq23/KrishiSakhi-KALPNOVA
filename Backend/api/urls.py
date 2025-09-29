@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework import routers
-from .views import RegisterApi, LoginApi, UserApi, HelloApi, ContactMessageCreate, NewsletterSubscriptionCreate, NewsList, NewsDetail, UnifiedSearchView, UserSessionStart, UserSessionEnd, CropRecommendationView, AcceptRecommendationView
+from .views import RegisterApi, LoginApi, UserApi, HelloApi, ContactMessageCreate, NewsletterSubscriptionCreate, NewsList, NewsDetail, UnifiedSearchView, UserSessionStart, UserSessionEnd, CropRecommendationView, AcceptRecommendationView, DashboardView, SendUsernameChangeOTP, VerifyUsernameChangeOTP
 from .views import CropViewSet, TipViewSet, ToolViewSet, UserActivityLogViewSet, FarmingActivityViewSet
 
 router = routers.DefaultRouter()
@@ -25,4 +25,7 @@ urlpatterns = [
     path('accept-crop-recommendation/', AcceptRecommendationView.as_view(), name="accept-recommendation"),
     path('session/start/', UserSessionStart.as_view()),
     path('session/end/', UserSessionEnd.as_view()), 
+    path('dashboard/', DashboardView.as_view(), name='dashboard'),
+    path('auth/send-username-otp/', SendUsernameChangeOTP.as_view(), name='send-username-otp'),
+    path('auth/verify-username-otp/', VerifyUsernameChangeOTP.as_view(), name='verify-username-otp'),
 ]

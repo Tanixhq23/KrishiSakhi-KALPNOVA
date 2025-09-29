@@ -31,7 +31,9 @@ from .models import (
     FarmingActivity,
     UserActivityLog,
 )
-from .email_utils import send_login_notification, send_logout_notification
+from .email_utils import send_login_notification, send_logout_notification, send_otp_email
+from django.core.cache import cache
+import random
 from rest_framework.views import APIView
 import pickle
 import os
@@ -367,3 +369,36 @@ class DashboardView(APIView):
         }
         
         return Response(data)
+
+class SendUsernameChangeOTP(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request, *args, **kwargs):
+        user = request.user
+        otp = random.randint(100000, 999999)
+        cache.set(f'username_change_otp_{user.id}', otp, 300)  # Cache for 5 minutes
+        send_otp_email(user, otp)
+        return Response({'message': 'OTP sent successfully.'}, status=status.HTTP_200_OK)
+
+class VerifyUsernameChangeOTP(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request, *args, **kwargs):
+        user = request.user
+        otp = request.data.get('otp')
+        new_username = request.data.get('username')
+        cached_otp = cache.get(f'username_change_otp_{user.id}')
+
+        if not otp or not new_username:
+            return Response({'error': 'OTP and new username are required.'}, status=status.HTTP_400_BAD_REQUEST)
+
+        if not cached_otp:
+            return Response({'error': 'OTP has expired.'}, status=status.HTTP_400_BAD_REQUEST)
+
+        if str(cached_otp) != str(otp):
+            return Response({'error': 'Invalid OTP.'}, status=status.HTTP_400_BAD_REQUEST)
+
+        user.username = new_username
+        user.save()
+        cache.delete(f'username_change_otp_{user.id}')
+        return Response({'message': 'Username updated successfully.'}, status=status.HTTP_200_OK)

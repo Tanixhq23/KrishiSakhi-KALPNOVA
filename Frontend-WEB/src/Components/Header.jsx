@@ -66,6 +66,7 @@ export default function Header() {
             <Link to={"/services"}>Services</Link>
             <Link to={"/contact"}>Contact</Link>
             {localStorage.getItem('token') && <Link to={"/dashboard"}>Dashboard</Link>}
+            {localStorage.getItem('token') && <Link to={"/profile"}>Profile</Link>}
           </nav>
           {/* Desktop Button */}
           <div className="desktop-btn" ref={desktopBtnRef}>
@@ -108,6 +109,7 @@ export default function Header() {
                 Contact
               </Link>
               {localStorage.getItem('token') && <Link to={"/dashboard"} onClick={() => setIsMenuOpen(false)}>Dashboard</Link>}
+              {localStorage.getItem('token') && <Link to={"/profile"} onClick={() => setIsMenuOpen(false)}>Profile</Link>}
               {localStorage.getItem('token') ? (
                 <button className="signupbtn" onClick={handleLogout}>Logout</button>
               ) : (
